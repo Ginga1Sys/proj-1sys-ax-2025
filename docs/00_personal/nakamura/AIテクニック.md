@@ -122,10 +122,8 @@ graph LR
 
 ### 1. 環境セットアップ
 - [ ] 必要なパッケージをインストール
-  ```bash
   npm install jsonwebtoken bcryptjs
   npm install -D @types/jsonwebtoken @types/bcryptjs
-  ```
 - [ ] 環境変数を設定(.env)
   - JWT_SECRET
   - JWT_EXPIRES_IN
@@ -171,7 +169,6 @@ graph LR
 - パスワードは必ずハッシュ化して保存
 - JWTシークレットは環境変数で管理
 - エラーメッセージで内部情報を漏らさない
-```
 ```
 **メリット:**
 - 作業の抜け漏れに気づける
