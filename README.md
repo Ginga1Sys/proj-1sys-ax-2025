@@ -88,3 +88,8 @@ develop: 開発のベースとなるブランチ。
 feature/xxx: 各機能の開発ブランチ（developから切る）。
 
 作業完了後は、develop へのプルリクエスト（PR）を作成してください。
+
+---
+## Slack通知:
+CI/CDのビルドステータスや重要なイベントは、専用のSlackチャンネルに通知されます。
+通知設定は `.github/workflows/slack-pr-comment-notification.yml` に記載されています。`
