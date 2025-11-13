@@ -1,0 +1,106 @@
+name: Slack PR Comment Notification
+
+on:
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  notify-slack:
+    runs-on: ubuntu-latest
+    # PRに関連するコメントのみを対象にする
+    if: github.event.issue.pull_request || github.event.pull_request
+
+    steps:
+      - name: Send Slack notification
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          # イベントタイプに応じた情報を取得
+          if [ "${{ github.event_name }}" = "issue_comment" ]; then
+            COMMENT_BODY="${{ github.event.comment.body }}"
+            COMMENT_URL="${{ github.event.comment.html_url }}"
+            COMMENTER="${{ github.event.comment.user.login }}"
+            PR_TITLE="${{ github.event.issue.title }}"
+            PR_NUMBER="${{ github.event.issue.number }}"
+            COMMENT_TYPE="PRコメント"
+          elif [ "${{ github.event_name }}" = "pull_request_review_comment" ]; then
+            COMMENT_BODY="${{ github.event.comment.body }}"
+            COMMENT_URL="${{ github.event.comment.html_url }}"
+            COMMENTER="${{ github.event.comment.user.login }}"
+            PR_TITLE="${{ github.event.pull_request.title }}"
+            PR_NUMBER="${{ github.event.pull_request.number }}"
+            COMMENT_TYPE="レビューコメント"
+          elif [ "${{ github.event_name }}" = "pull_request_review" ]; then
+            COMMENT_BODY="${{ github.event.review.body }}"
+            COMMENT_URL="${{ github.event.review.html_url }}"
+            COMMENTER="${{ github.event.review.user.login }}"
+            PR_TITLE="${{ github.event.pull_request.title }}"
+            PR_NUMBER="${{ github.event.pull_request.number }}"
+            COMMENT_TYPE="レビュー"
+          fi
+
+          # コメント本文を最初の100文字に制限（長い場合は省略記号を追加）
+          if [ ${#COMMENT_BODY} -gt 100 ]; then
+            COMMENT_PREVIEW="${COMMENT_BODY:0:100}..."
+          else
+            COMMENT_PREVIEW="$COMMENT_BODY"
+          fi
+
+          # Slack通知のペイロードを作成
+          PAYLOAD=$(cat <<EOF
+          {
+            "text": "PR にコメントが投稿されました",
+            "blocks": [
+              {
+                "type": "header",
+                "text": {
+                  "type": "plain_text",
+                  "text": "💬 新しい${COMMENT_TYPE}"
+                }
+              },
+              {
+                "type": "section",
+                "fields": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "*PR:*\n<${{ github.event.pull_request.html_url || github.event.issue.html_url }}|#${PR_NUMBER} ${PR_TITLE}>"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*投稿者:*\n${COMMENTER}"
+                  }
+                ]
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*コメント:*\n${COMMENT_PREVIEW}"
+                }
+              },
+              {
+                "type": "actions",
+                "elements": [
+                  {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "コメントを見る"
+                    },
+                    "url": "${COMMENT_URL}"
+                  }
+                ]
+              }
+            ]
+          }
+          EOF
+          )
+
+          # Slack Webhookに送信
+          curl -X POST -H 'Content-type: application/json' \
+            --data "$PAYLOAD" \
+            "$SLACK_WEBHOOK_URL"
