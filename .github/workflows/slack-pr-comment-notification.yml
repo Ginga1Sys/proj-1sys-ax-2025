@@ -1,14 +1,15 @@
 name: Slack PR Comment Notification
 
 on:
+  push:
+    branches:
+      - '**'
   issue_comment:
     types: [created]
   pull_request_review_comment:
     types: [created]
   pull_request_review:
     types: [submitted]
-  commit_comment:
-    types: [created]
   discussion_comment:
     types: [created]
 
@@ -20,7 +21,7 @@ jobs:
       github.event_name == 'issue_comment' ||
       github.event_name == 'pull_request_review_comment' ||
       github.event_name == 'pull_request_review' ||
-      github.event_name == 'commit_comment' ||
+      github.event_name == 'push' ||
       github.event_name == 'discussion_comment'
 
     steps:
@@ -53,14 +54,16 @@ jobs:
             TITLE="${{ github.event.pull_request.title }}"
             NUMBER="${{ github.event.pull_request.number }}"
             COMMENT_TYPE="レビュー"
-          elif [ "${{ github.event_name }}" = "commit_comment" ]; then
-            COMMENT_BODY="${{ github.event.comment.body }}"
-            COMMENT_URL="${{ github.event.comment.html_url }}"
-            COMMENTER="${{ github.event.comment.user.login }}"
-            TARGET_URL="${{ github.event.comment.html_url }}"
-            TITLE="Commit ${GITHUB_SHA:0:7}"
+          elif [ "${{ github.event_name }}" = "push" ]; then
+            COMMENT_BODY="${{ github.event.head_commit.message }}"
+            COMMENT_URL="${{ github.event.compare }}"
+            COMMENTER="${{ github.event.pusher.name }}"
+            REPO_HTML_URL="${{ github.event.repository.html_url }}"
+            BRANCH_NAME="${GITHUB_REF#refs/heads/}"
+            TARGET_URL="$REPO_HTML_URL/tree/$BRANCH_NAME"
+            TITLE="Push to $BRANCH_NAME"
             NUMBER=""
-            COMMENT_TYPE="コミットコメント"
+            COMMENT_TYPE="Push"
           elif [ "${{ github.event_name }}" = "discussion_comment" ]; then
             COMMENT_BODY="${{ github.event.comment.body }}"
             COMMENT_URL="${{ github.event.comment.html_url }}"
