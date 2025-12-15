@@ -1,7 +1,7 @@
-# 基本設計書 - API (テンプレート)
+# 基本設計書 - API設計
 
 バージョン: 0.1  
-作成日: 2025-12-06  
+作成日: 2025-12-15  
 参照: 統合要件定義書 (統合要件定義書.md)
 
 ## 1. 目的
@@ -59,6 +59,7 @@
   - GET /api/v1/knowledge — 検索一覧（query, tags, author, status, pagination）
   - GET /api/v1/knowledge/{id} — 詳細
   - PUT /api/v1/knowledge/{id} — 編集（履歴保存）
+  - GET /api/v1/knowledge/{id}/history — 編集履歴一覧取得（過去バージョン参照用）
   - DELETE /api/v1/knowledge/{id} — 論理削除
   - POST /api/v1/knowledge/{id}/submit — 公開申請 (status -> pending)
 - Like / Reaction
@@ -68,6 +69,8 @@
   - POST /api/v1/knowledge/{id}/comments — コメント作成（parent_comment_id optional）
   - GET /api/v1/knowledge/{id}/comments — コメント一覧（threaded）
   - PUT/DELETE /api/v1/comments/{id} — 編集/削除（権限制御）
+- Tags
+  - GET /api/v1/tags — タグ一覧取得（タグクラウド・検索フィルタ用）
 - Attachment / Media
   - POST /api/v1/attachments — アップロード（multipart/form-data または事前署名）
   - GET /api/v1/attachments/{id} — ダウンロード（署名付きURL 推奨）
@@ -167,4 +170,4 @@
 - 変更履歴
 
 変更履歴:
-- 0.1 初版 (テンプレート)
+- 0.1 初版
