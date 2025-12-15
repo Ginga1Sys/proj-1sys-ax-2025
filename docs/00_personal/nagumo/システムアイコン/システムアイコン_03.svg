@@ -1,0 +1,30 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">システムアイコン_03（Hub & Nodes 清書）</title>
+  <desc id="desc">中心ハブから4つのノードへリンクが伸び、右上方向に進行矢印を備えた統合・連携のアイコン。</desc>
+  <defs>
+    <!-- 配色（暫定）: Primary=#0A84FF, Neutral=#0B1220 -->
+    <marker id="arrow-primary" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#0A84FF"/>
+    </marker>
+  </defs>
+
+  <!-- Links (under circles for綺麗な交差) -->
+  <g stroke-linecap="round" fill="none">
+    <line x1="128" y1="128" x2="68" y2="68" stroke="#0B1220" stroke-width="8"/>
+    <line x1="128" y1="128" x2="188" y2="188" stroke="#0B1220" stroke-width="8"/>
+    <line x1="128" y1="128" x2="68" y2="188" stroke="#0B1220" stroke-width="8"/>
+    <!-- 進行感のアクセント（右上方向） -->
+    <line x1="128" y1="128" x2="188" y2="68" stroke="#0A84FF" stroke-width="8" marker-end="url(#arrow-primary)"/>
+  </g>
+
+  <!-- Hub and nodes -->
+  <g>
+    <!-- Center hub -->
+    <circle cx="128" cy="128" r="28" fill="#0A84FF"/>
+    <!-- Satellite nodes -->
+    <circle cx="68" cy="68" r="12" fill="#0B1220"/>
+    <circle cx="188" cy="68" r="12" fill="#0B1220"/>
+    <circle cx="188" cy="188" r="12" fill="#0B1220"/>
+    <circle cx="68" cy="188" r="12" fill="#0B1220"/>
+  </g>
+</svg>
