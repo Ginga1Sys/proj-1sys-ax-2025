@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900" preserveAspectRatio="xMidYMid meet" font-family="Segoe UI, Roboto, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#dbefff"/>
+      <stop offset="1" stop-color="#c3ddff"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#6fb1ff"/>
+      <stop offset="1" stop-color="#86b9ff"/>
+    </linearGradient>
+    <linearGradient id="input" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f2f6fb"/>
+    </linearGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+
+  <!-- Center card -->
+  <g transform="translate(100,60)">
+    <rect x="0" y="0" width="700" height="780" rx="28" ry="28" fill="url(#card)" filter="url(#soft)"/>
+    <!-- top rounded white highlight -->
+    <rect x="0" y="0" width="700" height="220" rx="28" ry="28" fill="rgba(255,255,255,0.06)"/>
+
+    <!-- header illustration (simplified people/icons) -->
+    <g transform="translate(120,24)">
+      <!-- central person -->
+      <circle cx="140" cy="40" r="28" fill="#fff9" />
+      <rect x="112" y="74" width="56" height="24" rx="6" fill="#fff8"/>
+      <!-- left person -->
+      <circle cx="60" cy="36" r="22" fill="#fff9"/>
+      <rect x="42" y="64" width="40" height="18" rx="5" fill="#fff8"/>
+      <!-- right person -->
+      <circle cx="220" cy="36" r="22" fill="#fff9"/>
+      <rect x="202" y="64" width="40" height="18" rx="5" fill="#fff8"/>
+      <!-- small icons -->
+      <circle cx="100" cy="12" r="8" fill="#ffffff80"/>
+      <circle cx="180" cy="12" r="8" fill="#ffffff80"/>
+    </g>
+
+    <!-- title -->
+    <text x="350" y="190" fill="#ffffff" font-size="22" text-anchor="middle" font-weight="600">team sharing</text>
+
+    <!-- input area -->
+    <g transform="translate(70,220)">
+      <!-- first input -->
+      <rect x="0" y="0" width="560" height="56" rx="28" fill="url(#input)" stroke="#ffffff66" />
+      <text x="22" y="36" fill="#0e3b66" font-size="20">メール</text>
+      <text x="520" y="36" fill="#6b88a8" font-size="16" text-anchor="end">@ginga.info</text>
+
+      <!-- second input -->
+      <rect x="0" y="80" width="560" height="56" rx="28" fill="url(#input)" stroke="#ffffff66" />
+      <text x="22" y="116" fill="#0e3b66" font-size="20">パスワード</text>
+
+      <!-- third (dropdown) -->
+      <rect x="0" y="160" width="560" height="56" rx="12" fill="#ffffffcc" stroke="#e6eefb"/>
+      <text x="22" y="196" fill="#6b88a8" font-size="16">@ginga.info</text>
+      <polygon points="528,184 544,192 528,200" fill="#7b9ec6"/>
+
+      <!-- orange button -->
+      <g transform="translate(0,240)">
+        <rect x="0" y="0" width="560" height="68" rx="34" fill="#f39c3b" filter=""/>
+        <text x="280" y="44" fill="#ffffff" font-size="24" font-weight="700" text-anchor="middle">ログイン</text>
+      </g>
+
+      <!-- help box -->
+      <g transform="translate(0,340)">
+        <rect x="0" y="0" width="560" height="120" rx="12" fill="#d9e9ff" />
+        <text x="280" y="50" fill="#2b4f74" font-size="16" text-anchor="middle">まだアカウントをお持ちでないですか？</text>
+        <text x="280" y="78" fill="#2b4f74" font-size="16" text-anchor="middle">アカウント登録はこちらです！</text>
+
+        <!-- chat bubble icon -->
+        <g transform="translate(520,28)">
+          <circle cx="28" cy="28" r="28" fill="#2b7be6"/>
+          <text x="28" y="36" fill="#fff" font-size="18" font-weight="700" text-anchor="middle">…</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- decorative bottom star -->
+    <g transform="translate(480,680)">
+      <polygon points="10,0 13,7 20,8 14,12 16,20 10,15 4,20 6,12 0,8 7,7" fill="#ffffff22"/>
+    </g>
+  </g>
+</svg>

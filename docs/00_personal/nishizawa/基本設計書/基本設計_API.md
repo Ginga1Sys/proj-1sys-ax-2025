@@ -165,9 +165,31 @@
 - ファイルウイルススキャン、外部アイデンティティ連携（SSO）
 - 多言語対応、全文検索の順位調整、推薦エンジン
 
-## 17. 付録
+## 17. アーキテクチャ（全体方針）
+- バックエンド: Java（Spring Boot）による REST API (/api/v1) を想定。
+  - コントローラ/サービス/リポジトリ層で責務分離、バリデーションは DTO レイヤで実施。
+  - マイグレーション: Flyway または Liquibase を導入。
+  - セキュリティ: JWT（RS256 を推奨）で署名・検証。認可は RBAC（Spring Security）。
+  - パフォーマンス: Redis をキャッシュ層に導入（セッション・頻繁参照データ）。
+- 永続化・ストレージ:
+  - 主 DB: PostgreSQL（論理削除・インデックス・全文検索は将来的に Elasticsearch を検討）。
+  - ファイル: S3 互換ストレージ（署名付き URL によるアップロード/ダウンロード）。
+- インフラ・デプロイ:
+  - コンテナ化: Docker イメージを作成し Kubernetes（EKS/GKE 等）へデプロイを想定。小規模初期は ECS / Docker Compose 可。
+  - CI/CD: GitHub Actions でビルド→テスト→イメージ作成→デプロイ（環境別）。
+  - 可観測性: Prometheus (メトリクス)、Grafana (ダッシュボード)、ELK/Fluentd (ログ集約)。
+  - ヘルスチェックとリソース制限を設定（Liveness/Readiness probes）。
+- 運用・セキュリティ:
+  - TLS 終端（ALB/Ingress）、CORS 設定、レート制限（API Gateway / Ingress）、監査ログの保存。
+  - 機密情報: Secrets Manager / KMS で管理。CI のシークレットは最小権限で管理。
+- データフロー（概要）:
+  - Next.js フロント → HTTPS → Java API → PostgreSQL / Redis / S3
+  - 管理者操作・承認は API 経由で監査ログに記録。
+
+## 18. 付録
 - 用語集
 - 変更履歴
 
 変更履歴:
 - 0.1 初版
+- 0.2 アーキテクチャ追記 — 2026-01-05
