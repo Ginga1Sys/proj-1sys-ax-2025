@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-label="コメントスレッドイメージ図 SCR-08_Desktop 1440x900">
+  <defs>
+    <style type="text/css"><![CDATA[
+      .bg{fill:#F5F7FA}
+      .primary{fill:#6fb1ff}
+      .surface{fill:#FFFFFF}
+      .text{fill:#111827; font-family: 'Noto Sans JP', Inter, Roboto, sans-serif;}
+      .muted{fill:#6B7280}
+      .h1{font-size:24px; font-weight:700}
+      .h2{font-size:18px; font-weight:600}
+      .body{font-size:14px}
+      .card{fill:#FFFFFF; stroke:#E6E9EE; stroke-width:1}
+      .chip{fill:#F3F6F9; stroke:#E6E9EE}
+      .accent{fill:#2A9DF4}
+      .badge-admin{fill:#FF9F1C}
+    ]]></style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" x="0" y="0" width="1440" height="900"/>
+
+  <!-- Topbar -->
+  <rect class="primary" x="0" y="0" width="1440" height="64"/>
+  <g transform="translate(24,12)">
+    <rect x="8" y="8" width="560" height="40" rx="6" fill="#FFFFFF" stroke="#E6E9EE"/>
+    <text x="820" y="36" class="text body" fill="#FFFFFF">コメントスレッド</text>
+    <circle cx="1320" cy="32" r="12" fill="#FFFFFF" opacity="0.9"/>
+    <text x="1390" y="38" class="text" fill="#FFFFFF" font-size="14">U</text>
+  </g>
+
+  <!-- Left Navigation -->
+  <g role="navigation" aria-label="サイドナビ" transform="translate(0,64)">
+    <rect x="0" y="0" width="240" height="836" rx="0" fill="#6fb1ff"/>
+    <g transform="translate(24,24)">
+      <text class="text h2" x="0" y="24" fill="#FFFFFF">Ginga</text>
+      <g fill="#FFFFFF" opacity="0.95" transform="translate(0,44)">
+        <text class="text body" x="0" y="30">ダッシュボード</text>
+        <text class="text body" x="0" y="60">ナレッジ</text>
+        <text class="text body" x="0" y="90">承認</text>
+        <text class="text body" x="0" y="120">投稿一覧</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Main content: comment thread -->
+  <g role="main" aria-label="コメントスレッド" transform="translate(240,64)">
+    <!-- Header -->
+    <g transform="translate(16,16)">
+      <text class="text h1" x="0" y="28">コメント</text>
+      <text class="text body muted" x="0" y="52">スレッド形式のコメント／返信。モデレーション操作を含む。</text>
+    </g>
+
+    <!-- Thread container -->
+    <g transform="translate(16,88)">
+      <rect x="0" y="0" width="880" height="676" rx="12" class="card"/>
+
+      <!-- Comment item 1 (root) -->
+      <g transform="translate(20,20)">
+        <rect x="0" y="0" width="840" height="96" rx="8" fill="#FBFDFF" stroke="#E6E9EE"/>
+        <circle cx="36" cy="36" r="20" fill="#E6EEF9"/>
+        <text class="text h2" x="72" y="36">佐藤 花子</text>
+        <text class="text body muted" x="72" y="58">2024/11/05 · いいね 4</text>
+        <text class="text body" x="72" y="80">API 認証周りの補足を追記しました。OAuth2 のフロー図があると良いです。</text>
+        <!-- actions -->
+        <g transform="translate(720,12)">
+          <rect x="0" y="0" width="84" height="28" rx="14" class="chip"/>
+          <text x="42" y="18" class="text body muted" text-anchor="middle">返信</text>
+        </g>
+        <g transform="translate(720,44)">
+          <rect x="0" y="0" width="84" height="28" rx="14" fill="#FFF7EA" stroke="#E6E9EE"/>
+          <text x="42" y="18" class="text body muted" text-anchor="middle">通報</text>
+        </g>
+      </g>
+
+      <!-- Reply to comment 1 (nested) -->
+      <g transform="translate(40,132)">
+        <rect x="0" y="0" width="780" height="80" rx="8" fill="#FBFFFA" stroke="#E6E9EE"/>
+        <circle cx="36" cy="28" r="16" fill="#FFF7EA"/>
+        <text class="text h2" x="68" y="28">中村 次郎</text>
+        <text class="text body muted" x="68" y="50">2024/11/05 · いいね 1</text>
+        <text class="text body" x="68" y="72">OAuth2で問題ないと思います。PKCE を推奨します。</text>
+        <g transform="translate(660,12)">
+          <rect x="0" y="0" width="68" height="24" rx="12" class="chip"/>
+          <text x="34" y="16" class="text body muted" text-anchor="middle">返信</text>
+        </g>
+      </g>
+
+      <!-- Comment item 2 (root, highlighted admin note) -->
+      <g transform="translate(20,232)">
+        <rect x="0" y="0" width="840" height="96" rx="8" fill="#FFF7EA" stroke="#E6E9EE"/>
+        <circle cx="36" cy="36" r="20" fill="#FFE5BF"/>
+        <text class="text h2" x="72" y="36">管理者</text>
+        <text class="text body muted" x="72" y="58">2024/11/04 · モデレーション</text>
+        <text class="text body" x="72" y="80">下書きのログ取得要件を追加してください。違反があれば通報を。</text>
+        <g transform="translate(620,12)">
+          <rect x="0" y="0" width="208" height="28" rx="14" fill="#FF9F1C"/>
+          <text x="104" y="18" font-size="12" fill="#fff" text-anchor="middle">管理者操作（承認 / 差し戻し）</text>
+        </g>
+      </g>
+
+      <!-- Reply chain deeper -->
+      <g transform="translate(40,340)">
+        <rect x="0" y="0" width="780" height="72" rx="8" fill="#FBFDFF" stroke="#E6E9EE"/>
+        <circle cx="36" cy="28" r="16" fill="#E6EEF9"/>
+        <text class="text h2" x="68" y="28">鈴木 一郎</text>
+        <text class="text body muted" x="68" y="50">2024/11/05</text>
+        <text class="text body" x="68" y="68">ログ取得項目のサンプルを PR で提示します。</text>
+      </g>
+
+      <!-- Pagination / more -->
+      <g transform="translate(20,428)" opacity="0.8">
+        <text class="text body muted" x="0" y="20">さらに表示（20件中 4件表示）</text>
+      </g>
+
+      <!-- New comment input -->
+      <g transform="translate(20,464)">
+        <rect x="0" y="0" width="840" height="140" rx="12" class="card"/>
+        <text class="text h2" x="16" y="28">コメントを追加</text>
+        <rect x="16" y="40" width="688" height="72" rx="8" class="chip"/>
+        <text class="text body muted" x="32" y="86">コメントを入力…（Markdown対応）</text>
+        <g transform="translate(720,80)">
+          <rect x="0" y="0" width="120" height="36" rx="8" fill="#2A9DF4"/>
+          <text x="60" y="24" font-size="14" fill="#fff" text-anchor="middle">投稿</text>
+        </g>
+        <g transform="translate(720,36)">
+          <rect x="0" y="0" width="120" height="28" rx="8" fill="#FFFFFF" stroke="#E6E9EE"/>
+          <text x="60" y="18" class="text body muted" text-anchor="middle">下書き保存</text>
+        </g>
+      </g>
+
+    </g>
+
+    <!-- Footer hint -->
+    <text x="32" y="780" class="text body muted">編集履歴 · 通報ポリシー · ヘルプ</text>
+  </g>
+
+  <!-- Right widgets -->
+  <g role="complementary" aria-label="ウィジェット" transform="translate(1120,64)">
+    <rect x="0" y="0" width="320" height="836" rx="0" fill="none"/>
+    <rect x="16" y="16" width="288" height="120" rx="12" class="card"/>
+    <text class="text h2" x="32" y="44">コメント統計</text>
+    <text class="text body" x="32" y="72">合計コメント: 124</text>
+    <text class="text body muted" x="32" y="92">未読: 3 · 通報: 0</text>
+
+    <rect x="16" y="152" width="288" height="220" rx="12" class="card"/>
+    <text class="text h2" x="32" y="184">モデレーション</text>
+    <text class="text body muted" x="32" y="206">最近の通報 · 処理待ち</text>
+  </g>
+
+  <text x="24" y="886" class="text" font-size="12" fill="#9CA3AF">SCR-08_コメントスレッド 1440×900 — レイアウト: 左ナビ(240) | メイン(880) | 右(320)</text>
+</svg>

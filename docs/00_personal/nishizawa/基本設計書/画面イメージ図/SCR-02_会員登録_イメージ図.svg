@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900" aria-label="会員登録画面イメージ図 SCR-02" role="img" preserveAspectRatio="xMidYMid meet" font-family="Noto Sans JP, Inter, Roboto, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#e8f2ff"/>
+      <stop offset="1" stop-color="#d0e6ff"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#6fb1ff"/>
+      <stop offset="1" stop-color="#84b9ff"/>
+    </linearGradient>
+    <linearGradient id="inputGrad" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f4f8fe"/>
+    </linearGradient>
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bgGrad)"/>
+
+  <!-- Central card -->
+  <g transform="translate(100,60)">
+    <rect x="0" y="0" width="700" height="780" rx="28" ry="28" fill="url(#cardGrad)" filter="url(#softShadow)"/>
+    <rect x="0" y="0" width="700" height="220" rx="28" ry="28" fill="rgba(255,255,255,0.06)"/>
+
+    <!-- header illustration -->
+    <g transform="translate(120,24)" aria-hidden="true">
+      <circle cx="140" cy="40" r="28" fill="#ffffff22"/>
+      <rect x="112" y="74" width="56" height="24" rx="6" fill="#ffffff18"/>
+      <circle cx="60" cy="36" r="22" fill="#ffffff18"/>
+      <circle cx="220" cy="36" r="22" fill="#ffffff18"/>
+    </g>
+
+    <!-- title -->
+    <text x="350" y="190" fill="#ffffff" font-size="22" text-anchor="middle" font-weight="600">会員登録</text>
+
+    <!-- form area -->
+    <g transform="translate(70,220)" role="form" aria-label="会員登録フォーム">
+      <!-- 名前 -->
+      <rect x="0" y="0" width="560" height="56" rx="12" fill="url(#inputGrad)" stroke="#ffffff66"/>
+      <text x="22" y="36" fill="#0e3b66" font-size="18">表示名（必須）</text>
+
+      <!-- メール -->
+      <rect x="0" y="80" width="560" height="56" rx="12" fill="url(#inputGrad)" stroke="#ffffff66"/>
+      <text x="22" y="116" fill="#0e3b66" font-size="18">メールアドレス（@ginga.info）</text>
+      <text x="520" y="116" fill="#6b88a8" font-size="14" text-anchor="end">@ginga.info</text>
+
+      <!-- パスワード -->
+      <rect x="0" y="160" width="560" height="56" rx="12" fill="url(#inputGrad)" stroke="#ffffff66"/>
+      <text x="22" y="196" fill="#0e3b66" font-size="18">パスワード（8文字以上）</text>
+
+      <!-- パスワード確認 -->
+      <rect x="0" y="240" width="560" height="56" rx="12" fill="url(#inputGrad)" stroke="#ffffff66"/>
+      <text x="22" y="276" fill="#0e3b66" font-size="18">パスワード（確認）</text>
+
+      <!-- domain checkbox / note -->
+      <g transform="translate(0,320)" aria-hidden="true">
+        <rect x="0" y="0" width="560" height="44" rx="10" fill="#ffffffcc" stroke="#e6eefb"/>
+        <text x="16" y="30" fill="#1f4f78" font-size="14">社内ドメイン（@ginga.info）のみ登録可（Double Opt-in）</text>
+      </g>
+
+      <!-- CTA: Register -->
+      <g transform="translate(0,380)">
+        <rect x="0" y="0" width="560" height="68" rx="34" fill="#ff8a3d"/>
+        <text x="280" y="44" fill="#ffffff" font-size="22" font-weight="700" text-anchor="middle">会員登録</text>
+      </g>
+
+      <!-- verification note -->
+      <g transform="translate(0,464)">
+        <rect x="0" y="0" width="560" height="88" rx="12" fill="#dff3ff"/>
+        <text x="20" y="28" fill="#145072" font-size="14">登録後、確認メールを送信します。メール内のリンクで有効化（Double Opt-in）してください。</text>
+        <text x="20" y="54" fill="#145072" font-size="14">メールが届かない場合は迷惑メールフォルダをご確認ください。</text>
+      </g>
+
+      <!-- footer links -->
+      <g transform="translate(0,568)">
+        <text x="20" y="22" fill="#ffffff" font-size="14">既にアカウントをお持ちですか？</text>
+        <text x="520" y="22" fill="#ffffff" font-size="14" text-anchor="end" font-weight="700">ログイン</text>
+      </g>
+    </g>
+
+    <!-- decorative bottom badge -->
+    <g transform="translate(520,680)" aria-hidden="true">
+      <rect x="0" y="0" width="140" height="56" rx="12" fill="#ffffff22"/>
+      <text x="70" y="36" text-anchor="middle" fill="#ffffffaa" font-size="12">SCR-02 会員登録</text>
+    </g>
+  </g>
+
+  <!-- footer note -->
+  <text x="24" y="886" fill="#6b7280" font-size="12">会員登録イメージ — ダブルオプトイン/社内ドメインチェックを想定</text>
+</svg>
