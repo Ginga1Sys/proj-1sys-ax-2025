@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-label="公開トップ（未ログイン）イメージ図 1440x900">
+  <defs>
+    <style type="text/css"><![CDATA[
+      .bg{fill:#F8FAFC}
+      .topbar{fill:#FFFFFF; stroke:#E6E9EE}
+      .brand{fill:#0B3D91; font-family: 'Noto Sans JP', Inter, Roboto, sans-serif; font-weight:700}
+      .muted{fill:#6B7280; font-family: 'Noto Sans JP', Inter, Roboto, sans-serif}
+      .h1{font-size:28px; font-weight:600; fill:#111827}
+      .h2{font-size:18px; font-weight:500; fill:#111827}
+      .card{fill:#FFFFFF; stroke:#E6E9EE}
+      .cta{fill:#FF6B4A}
+      .badge{fill:#10B981; fill-opacity:0.95}
+    ]]></style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" x="0" y="0" width="1440" height="900"/>
+
+  <!-- Topbar -->
+  <rect class="topbar" x="0" y="0" width="1440" height="64"/>
+  <g transform="translate(24,12)">
+    <text class="brand" x="0" y="30" font-size="20">Ginga ナレッジ</text>
+    <!-- Search -->
+    <rect x="220" y="8" width="520" height="40" rx="8" fill="#F3F6F9" stroke="#E6E9EE"/>
+    <text x="240" y="36" class="muted">キーワードで検索</text>
+    <!-- auth buttons -->
+    <rect x="1160" y="12" width="88" height="40" rx="8" fill="#FFFFFF" stroke="#E6E9EE"/>
+    <text x="1204" y="38" class="muted" text-anchor="middle">ログイン</text>
+    <rect x="1256" y="12" width="120" height="40" rx="8" fill="#FF6B4A"/>
+    <text x="1316" y="38" fill="#FFFFFF" font-weight="600" text-anchor="middle">会員登録</text>
+  </g>
+
+  <!-- Main layout: left margin empty (no left nav for public) -->
+  <g transform="translate(48,96)" role="main" aria-label="公開トップコンテンツ">
+    <!-- Hero / Featured -->
+    <g transform="translate(0,0)">
+      <rect class="card" x="0" y="0" width="960" height="220" rx="12"/>
+      <text x="24" y="44" class="h1">今週の注目 — AIで効率化する記事まとめ</text>
+      <text x="24" y="76" class="muted">社内で共有されている注目記事をピックアップ。ログインして全容を確認しましょう。</text>
+      <!-- CTA -->
+      <rect x="24" y="120" width="180" height="40" rx="8" class="cta"/>
+      <text x="114" y="147" fill="#FFFFFF" font-weight="600" text-anchor="middle">ログインして続きを見る</text>
+      <rect x="220" y="120" width="180" height="40" rx="8" fill="#FFFFFF" stroke="#E6E9EE"/>
+      <text x="310" y="147" class="muted" text-anchor="middle">公開記事を読む</text>
+    </g>
+
+    <!-- Public article list -->
+    <g transform="translate(0,252)">
+      <!-- List header -->
+      <text x="0" y="0" class="h2">公開記事（最新）</text>
+
+      <!-- Article row 1 -->
+      <g transform="translate(0,24)">
+        <rect class="card" x="0" y="0" width="720" height="88" rx="10"/>
+        <rect x="16" y="12" width="64" height="64" rx="6" fill="#EAF2FF"/>
+        <text x="96" y="36" class="h2">はじめての社内AI活用ガイド</text>
+        <text x="96" y="60" class="muted">実践的なテンプレートと注意点を紹介します。</text>
+        <rect x="640" y="28" width="64" height="28" rx="14" class="badge"/>
+        <text x="672" y="47" font-size="12" fill="#fff" text-anchor="middle">公開</text>
+      </g>
+
+      <!-- Article row 2 -->
+      <g transform="translate(0,124)">
+        <rect class="card" x="0" y="0" width="720" height="88" rx="10"/>
+        <rect x="16" y="12" width="64" height="64" rx="6" fill="#FFF7EA"/>
+        <text x="96" y="36" class="h2">社内データの安全な取り扱い</text>
+        <text x="96" y="60" class="muted">アクセス制御とコラボレーションのベストプラクティス。</text>
+        <rect x="640" y="28" width="64" height="28" rx="14" class="badge"/>
+        <text x="672" y="47" font-size="12" fill="#fff" text-anchor="middle">公開</text>
+      </g>
+
+      <!-- Placeholder more -->
+      <g transform="translate(0,244)" opacity="0.6">
+        <rect x="0" y="0" width="720" height="56" rx="8" fill="#F3F6F9"/>
+        <text x="24" y="36" class="muted">さらに表示…（ログインで全件表示）</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right column widgets -->
+  <g transform="translate(1048,96)" role="complementary" aria-label="サイドウィジェット">
+    <!-- Signup promo -->
+    <rect class="card" x="0" y="0" width="344" height="140" rx="12"/>
+    <text x="24" y="40" class="h2">社内メンバー限定の機能</text>
+    <text x="24" y="68" class="muted">会社ドメインで登録して、投稿・承認フローに参加しましょう。</text>
+    <rect x="24" y="96" width="296" height="40" rx="8" class="cta"/>
+    <text x="172" y="122" fill="#FFFFFF" font-weight="600" text-anchor="middle">今すぐ会員登録</text>
+
+    <!-- Popular tags -->
+    <rect class="card" x="0" y="168" width="344" height="220" rx="12"/>
+    <text x="24" y="198" class="h2">人気タグ</text>
+    <g transform="translate(24,212)">
+      <rect x="0" y="12" width="72" height="28" rx="14" fill="#EAF2FF"/>
+      <text x="36" y="32" font-size="12" fill="#0B3D91" text-anchor="middle">AI</text>
+      <rect x="86" y="12" width="92" height="28" rx="14" fill="#FFF7EA"/>
+      <text x="132" y="32" font-size="12" fill="#A45A00" text-anchor="middle">セキュリティ</text>
+      <rect x="190" y="12" width="100" height="28" rx="14" fill="#F3F6F9"/>
+      <text x="240" y="32" font-size="12" class="muted" text-anchor="middle">運用</text>
+    </g>
+
+    <!-- Footer note -->
+    <text x="0" y="420" class="muted" font-size="12">未ログイン: 一部コンテンツは制限されます</text>
+  </g>
+
+  <!-- Footer label -->
+  <text x="24" y="886" class="muted" font-size="12">SCR-12_公開トップ（未ログイン） 1440×900 — レイアウト: メイン(960) | 右(392)</text>
+</svg>
