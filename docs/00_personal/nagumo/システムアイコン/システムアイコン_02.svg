@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NaviAI system icon version 2">
+  <defs>
+    <radialGradient id="grad-bg" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#0A102D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00071A;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="grad-light-beam" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="rgba(255, 235, 150, 0.8)" />
+      <stop offset="100%" stop-color="rgba(255, 235, 150, 0)" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4.5" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="512" height="512" fill="url(#grad-bg)" />
+
+  <!-- 灯台の光 -->
+  <g transform="translate(256, 256) rotate(-30)">
+    <path d="M 0 -20 L 300 100 L 300 -100 Z" fill="url(#grad-light-beam)" opacity="0.7" filter="url(#glow)" />
+  </g>
+
+  <!-- 灯台本体 -->
+  <g transform="translate(256, 256)">
+    <!-- 頂上部 -->
+    <circle cx="0" cy="0" r="25" fill="#28355E" stroke="#5A7BFF" stroke-width="2"/>
+    <circle cx="0" cy="0" r="12" fill="#FFE073" filter="url(#glow)"/>
+    
+    <!-- 胴体 -->
+    <path d="M -20 10 L 20 10 L 30 180 L -30 180 Z" fill="#DCE4FF" />
+    <path d="M -30 180 L 30 180 L 35 200 L -35 200 Z" fill="#B8C6E6" />
+  </g>
+
+  <!-- AIによる道筋 (ドット) -->
+  <g fill="#879FFF" opacity="0.9">
+    <circle cx="150" cy="350" r="3" />
+    <circle cx="180" cy="320" r="3.5" />
+    <circle cx="215" cy="300" r="4" />
+    <circle cx="256" cy="290" r="4.5" />
+    <circle cx="297" cy="300" r="4" />
+    <circle cx="332" cy="320" r="3.5" />
+    <circle cx="362" cy="350" r="3" />
+  </g>
+</svg>
