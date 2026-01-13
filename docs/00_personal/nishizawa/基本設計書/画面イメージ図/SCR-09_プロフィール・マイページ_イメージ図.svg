@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-label="プロフィール・マイページ SCR-09_Desktop 1440x900">
+  <defs>
+    <style type="text/css"><![CDATA[
+      .bg{fill:#F5F7FA}
+      .primary{fill:#6fb1ff}
+      .accent{fill:#2A9DF4}
+      .surface{fill:#FFFFFF}
+      .text{fill:#111827; font-family: 'Noto Sans JP', Inter, Roboto, sans-serif; }
+      .muted{fill:#6B7280}
+      .h1{font-size:28px; font-weight:600}
+      .h2{font-size:20px; font-weight:500}
+      .body{font-size:16px}
+      .card{fill:#FFFFFF; stroke:#E6E9EE; stroke-width:1}
+      .button{fill:#FF6B4A}
+      .stat{fill:#0B3D91}
+    ]]></style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" x="0" y="0" width="1440" height="900"/>
+
+  <!-- Topbar -->
+  <rect class="primary" x="0" y="0" width="1440" height="64"/>
+  <g transform="translate(24,12)">
+    <rect x="8" y="8" width="360" height="40" rx="6" fill="#FFFFFF" stroke="#E6E9EE"/>
+    <text x="24" y="36" class="text body muted">Search</text>
+    <circle cx="1320" cy="32" r="12" fill="#FFFFFF" opacity="0.9"/>
+    <circle cx="1360" cy="32" r="16" fill="#FFFFFF" opacity="0.9"/>
+    <text x="1390" y="38" class="text" fill="#FFFFFF" font-size="14">U</text>
+  </g>
+
+  <!-- Left Navigation -->
+  <g role="navigation" aria-label="サイドナビ" transform="translate(0,64)">
+    <rect x="0" y="0" width="240" height="836" fill="#6fb1ff"/>
+    <g transform="translate(24,24)">
+      <text class="text h1" x="0" y="24" fill="#FFFFFF">Ginga</text>
+      <g fill="#FFFFFF" opacity="0.95" transform="translate(0,44)">
+        <text class="text body" x="0" y="30">ダッシュボード</text>
+        <text class="text body" x="0" y="60">ナレッジ</text>
+        <text class="text body" x="0" y="90">承認</text>
+        <text class="text body" x="0" y="120">プロフィール</text>
+      </g>
+      <rect x="0" y="210" width="160" height="32" rx="8" fill="#FF6B4A"/>
+      <text x="80" y="234" text-anchor="middle" class="text body" fill="#FFFFFF">＋ 新規投稿</text>
+    </g>
+  </g>
+
+  <!-- Main content -->
+  <g role="main" aria-label="プロフィールメイン" transform="translate(240,64)">
+    <!-- Header: profile summary card -->
+    <g transform="translate(16,16)">
+      <rect class="card" x="0" y="0" width="880" height="160" rx="12"/>
+      <!-- avatar -->
+      <circle cx="88" cy="80" r="56" fill="#E6EEF9"/>
+      <text x="168" y="64" class="text h2">山本 太郎</text>
+      <text x="168" y="92" class="text body muted">ソフトウェアエンジニア • AI チーム</text>
+      <!-- bio -->
+      <text x="168" y="116" class="text body muted" font-size="14">ナレッジ共有とAI活用の推進。投稿数・レビュー管理をここから行います。</text>
+      <!-- edit/profile actions -->
+      <rect x="720" y="36" width="120" height="36" rx="8" class="button"/>
+      <text x="780" y="60" text-anchor="middle" class="text body" fill="#FFFFFF">プロフィール編集</text>
+      <rect x="720" y="84" width="120" height="32" rx="8" fill="#FFFFFF" stroke="#E6E9EE"/>
+      <text x="780" y="104" text-anchor="middle" class="text body muted">設定</text>
+    </g>
+
+    <!-- Stats and quick links -->
+    <g transform="translate(16,196)">
+      <rect class="card" x="0" y="0" width="580" height="84" rx="12"/>
+      <g transform="translate(24,20)">
+        <text class="text" x="0" y="20" fill="#6B7280">投稿</text>
+        <text class="text h1" x="0" y="52" fill="#0B3D91">24</text>
+
+        <text class="text" x="160" y="20" fill="#6B7280">承認待ち</text>
+        <text class="text h1" x="160" y="52" fill="#FF9F1C">3</text>
+
+        <text class="text" x="320" y="20" fill="#6B7280">コメント</text>
+        <text class="text h1" x="320" y="52" fill="#10B981">48</text>
+      </g>
+    </g>
+
+    <!-- Articles list -->
+    <g transform="translate(16,300)">
+      <text class="text h2" x="0" y="20">作成記事</text>
+      <!-- Article row template repeated -->
+      <g transform="translate(0,36)">
+        <rect class="card" x="0" y="0" width="580" height="72" rx="10"/>
+        <rect x="12" y="12" width="48" height="48" rx="6" fill="#EAF2FF"/>
+        <text x="72" y="36" class="text body">社内向けAI活用ガイド</text>
+        <text x="520" y="44" class="text" font-size="12" fill="#FF9F1C" text-anchor="middle">Pending</text>
+      </g>
+
+      <g transform="translate(0,120)">
+        <rect class="card" x="0" y="0" width="580" height="72" rx="10"/>
+        <rect x="12" y="12" width="48" height="48" rx="6" fill="#FFF7EA"/>
+        <text x="72" y="36" class="text body">機械学習モデル導入事例</text>
+        <text x="520" y="44" class="text" font-size="12" fill="#10B981" text-anchor="middle">Published</text>
+      </g>
+    </g>
+
+    <!-- Recent activity feed -->
+    <g transform="translate(620,196)">
+      <rect class="card" x="0" y="0" width="256" height="188" rx="12"/>
+      <text class="text body" x="20" y="30">最近のアクティビティ</text>
+      <g transform="translate(20,48)">
+        <rect x="0" y="0" width="216" height="12" rx="6" fill="#F3F6F9"/>
+        <rect x="0" y="28" width="216" height="12" rx="6" fill="#F3F6F9"/>
+        <rect x="0" y="56" width="216" height="12" rx="6" fill="#F3F6F9"/>
+      </g>
+    </g>
+
+    <!-- Placeholder for editing history / badges -->
+    <g transform="translate(620,396)">
+      <rect class="card" x="0" y="0" width="256" height="156" rx="12"/>
+      <text class="text body" x="20" y="30">編集履歴・バッジ</text>
+      <g transform="translate(20,48)">
+        <rect x="0" y="0" width="64" height="24" rx="12" fill="#EAF2FF"/>
+        <text x="32" y="16" class="text" font-size="12" text-anchor="middle" fill="#0B3D91">Contributor</text>
+      </g>
+    </g>
+
+    <!-- Footer note inside main -->
+    <text x="16" y="820" class="text" font-size="12" fill="#9CA3AF">SCR-09_Desktop — プロフィール / マイページ（アバター・統計・作成記事・アクティビティ）</text>
+  </g>
+
+  <!-- Right widgets -->
+  <g role="complementary" aria-label="ウィジェット" transform="translate(1120,64)">
+    <rect x="0" y="0" width="320" height="836" fill="none"/>
+    <rect x="16" y="16" width="288" height="120" rx="12" class="card"/>
+    <text x="32" y="44" class="text h2">プロフィール統計</text>
+    <text x="32" y="72" class="text" fill="#6B7280">閲覧数 • いいね • フォロワー</text>
+    <text x="32" y="96" class="text h1 stat">1.2k</text>
+
+    <rect x="16" y="152" width="288" height="160" rx="12" class="card"/>
+    <text x="32" y="180" class="text body">スケジュール / カレンダー</text>
+    <!-- small calendar placeholder -->
+    <g transform="translate(32,196)">
+      <rect x="0" y="0" width="224" height="112" rx="6" fill="#FBFDFF"/>
+      <rect x="8" y="8" width="24" height="24" rx="4" fill="#F3F6F9"/>
+      <rect x="40" y="8" width="24" height="24" rx="4" fill="#F3F6F9"/>
+      <rect x="72" y="8" width="24" height="24" rx="4" fill="#F3F6F9"/>
+      <text x="0" y="104" class="text" fill="#6B7280" font-size="12">カレンダー</text>
+    </g>
+
+    <rect x="16" y="332" width="288" height="220" rx="12" class="card"/>
+    <text x="32" y="360" class="text body">おすすめ設定</text>
+    <g transform="translate(32,376)">
+      <rect x="0" y="0" width="224" height="12" rx="6" fill="#F3F6F9"/>
+      <rect x="0" y="28" width="224" height="12" rx="6" fill="#F3F6F9"/>
+    </g>
+  </g>
+</svg>

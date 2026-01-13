@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-label="承認待ち一覧（Review）_Desktop 1440x900">
+  <defs>
+    <style type="text/css"><![CDATA[
+      .bg{fill:#F5F7FA}
+      .primary{fill:#6fb1ff}
+      .surface{fill:#FFFFFF}
+      .text{fill:#111827; font-family:'Noto Sans JP', Inter, Roboto, sans-serif;}
+      .muted{fill:#6B7280}
+      .h1{font-size:26px; font-weight:600}
+      .h2{font-size:18px; font-weight:600}
+      .body{font-size:14px}
+      .card{fill:#FFFFFF; stroke:#E6E9EE; stroke-width:1}
+      .btn-approve{fill:#10B981}
+      .btn-reject{fill:#EF4444}
+      .badge-pending{fill:#FF9F1C}
+      .badge-draft{fill:#FFCC80}
+    ]]></style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" x="0" y="0" width="1440" height="900"/>
+
+  <!-- Topbar -->
+  <rect class="primary" x="0" y="0" width="1440" height="64"/>
+  <g transform="translate(24,12)">
+    <rect x="8" y="8" width="360" height="40" rx="6" fill="#FFFFFF" stroke="#E6E9EE"/>
+    <text x="24" y="36" class="text body muted">Search</text>
+    <circle cx="1320" cy="32" r="12" fill="#FFFFFF" opacity="0.9"/>
+    <circle cx="1360" cy="32" r="16" fill="#FFFFFF" opacity="0.9"/>
+    <text x="1390" y="38" class="text" fill="#FFFFFF" font-size="14">A</text>
+  </g>
+
+  <!-- Left Navigation -->
+  <g role="navigation" aria-label="サイドナビ" transform="translate(0,64)">
+    <rect x="0" y="0" width="240" height="836" fill="#6fb1ff"/>
+    <g transform="translate(24,24)">
+      <text class="text h1" x="0" y="24" fill="#FFFFFF">Ginga</text>
+      <g fill="#FFFFFF" opacity="0.95" transform="translate(0,44)">
+        <text class="text body" x="0" y="30">ダッシュボード</text>
+        <text class="text body" x="0" y="60">ナレッジ</text>
+        <text class="text body" x="0" y="90">承認</text>
+        <text class="text body" x="0" y="120">ユーザー</text>
+      </g>
+      <rect x="0" y="210" width="160" height="32" rx="8" fill="#FF6B4A"/>
+      <text x="80" y="234" text-anchor="middle" class="text body" fill="#FFFFFF">＋ 新規投稿</text>
+    </g>
+  </g>
+
+  <!-- Main content (role=main) -->
+  <g role="main" aria-label="承認待ち一覧メイン" transform="translate(240,64)">
+    <rect x="0" y="0" width="880" height="836" fill="none"/>
+    <g transform="translate(16,16)">
+      <text class="text h1" x="0" y="28">承認待ち一覧（Review）</text>
+      <text class="text body muted" x="0" y="52">Pending状態の投稿を確認し、承認・却下・差し戻しを行います。</text>
+    </g>
+
+    <!-- Filters / bulk actions bar -->
+    <g transform="translate(16,80)">
+      <rect x="0" y="0" width="848" height="56" rx="8" class="card"/>
+      <text class="text body muted" x="16" y="36">フィルタ • ステータス • 投稿者 • キーワード</text>
+      <rect x="560" y="12" width="120" height="32" rx="6" class="btn-approve"/>
+      <text x="620" y="34" text-anchor="middle" font-size="12" fill="#FFFFFF">一括承認</text>
+      <rect x="688" y="12" width="120" height="32" rx="6" class="btn-reject"/>
+      <text x="748" y="34" text-anchor="middle" font-size="12" fill="#FFFFFF">一括却下</text>
+    </g>
+
+    <!-- Two-column area: left = review list (520), right = preview (304) -->
+    <g transform="translate(16,152)">
+      <!-- Review list column -->
+      <g transform="translate(0,0)">
+        <text class="text h2" x="0" y="20">承認待ち（全件: 12）</text>
+
+        <!-- Item A -->
+        <g transform="translate(0,36)">
+          <rect class="card" x="0" y="0" width="520" height="96" rx="10"/>
+          <rect x="12" y="12" width="72" height="72" rx="6" fill="#EAF2FF"/>
+          <text class="text h2" x="96" y="34">社内AI活用ガイド — データ準備</text>
+          <text class="text body muted" x="96" y="58">投稿者: 山本 太郎 • 2025-01-06</text>
+          <rect x="420" y="28" width="84" height="28" rx="14" class="badge-pending"/>
+          <text x="462" y="47" font-size="12" fill="#fff" text-anchor="middle">Pending</text>
+        </g>
+
+        <!-- Item B -->
+        <g transform="translate(0,148)">
+          <rect class="card" x="0" y="0" width="520" height="96" rx="10"/>
+          <rect x="12" y="12" width="72" height="72" rx="6" fill="#FFF7EA"/>
+          <text class="text h2" x="96" y="34">機械学習導入事例 — 成功要因</text>
+          <text class="text body muted" x="96" y="58">投稿者: 佐藤 花子 • 2025-01-04</text>
+          <rect x="420" y="28" width="84" height="28" rx="14" fill="#FF9F1C"/>
+          <text x="462" y="47" font-size="12" fill="#fff" text-anchor="middle">Pending</text>
+        </g>
+
+        <!-- Item C (declined example) -->
+        <g transform="translate(0,260)">
+          <rect class="card" x="0" y="0" width="520" height="96" rx="10"/>
+          <rect x="12" y="12" width="72" height="72" rx="6" fill="#FFECEF"/>
+          <text class="text h2" x="96" y="34">実験環境の構築メモ</text>
+          <text class="text body muted" x="96" y="58">投稿者: 鈴木 一郎 • 2024-12-28</text>
+          <rect x="420" y="28" width="84" height="28" rx="14" fill="#EF4444"/>
+          <text x="462" y="47" font-size="12" fill="#fff" text-anchor="middle">Declined</text>
+        </g>
+
+        <!-- Pagination -->
+        <g transform="translate(0,380)">
+          <rect x="0" y="0" width="520" height="56" rx="8" class="card"/>
+          <text class="text body muted" x="16" y="36">さらに読み込み…</text>
+        </g>
+      </g>
+
+      <!-- Detail preview column -->
+      <g transform="translate(544,0)">
+        <text class="text h2" x="0" y="20">投稿プレビュー</text>
+        <rect class="card" x="0" y="28" width="304" height="420" rx="10"/>
+        <g transform="translate(16,44)">
+          <text class="text h2" x="0" y="18">社内AI活用ガイド — データ準備</text>
+          <text class="text body muted" x="0" y="40">投稿者: 山本 太郎 • ステータス: Pending</text>
+          <rect x="0" y="56" width="272" height="240" rx="6" fill="#FBFDFF"/>
+          <text class="text body muted" x="0" y="310" font-size="12">Markdownプレビューの抜粋…</text>
+
+          <!-- Action buttons -->
+          <rect x="0" y="328" width="128" height="36" rx="6" class="btn-approve"/>
+          <text x="64" y="352" text-anchor="middle" font-size="14" fill="#FFFFFF">承認</text>
+          <rect x="152" y="328" width="128" height="36" rx="6" class="btn-reject"/>
+          <text x="216" y="352" text-anchor="middle" font-size="14" fill="#FFFFFF">却下</text>
+
+          <!-- Return to editor -->
+          <rect x="0" y="372" width="280" height="36" rx="6" class="card"/>
+          <text x="140" y="396" text-anchor="middle" font-size="14" fill="#6B7280">差し戻して編集させる</text>
+        </g>
+
+        <!-- Moderation notes -->
+        <g transform="translate(0,468)">
+          <rect class="card" x="0" y="0" width="304" height="88" rx="10"/>
+          <text class="text body muted" x="16" y="24">モデレーションメモ / 差し戻し理由をここに記録</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Footer note -->
+    <text x="16" y="820" class="text" font-size="12" fill="#9CA3AF">SCR-11_Desktop — 承認待ち一覧（Review）</text>
+  </g>
+
+  <!-- Right widgets -->
+  <g role="complementary" aria-label="ウィジェット" transform="translate(1120,64)">
+    <rect x="0" y="0" width="320" height="836" fill="none"/>
+    <rect x="16" y="16" width="288" height="120" rx="12" class="card"/>
+    <text x="32" y="44" class="text h2">統計</text>
+    <text x="32" y="72" class="text body muted">Pending: 12 • Published: 124</text>
+
+    <rect x="16" y="152" width="288" height="160" rx="12" class="card"/>
+    <text x="32" y="180" class="text body">最近の承認アクティビティ</text>
+
+    <rect x="16" y="332" width="288" height="220" rx="12" class="card"/>
+    <text x="32" y="360" class="text body">ユーザー管理ショートカット</text>
+  </g>
+</svg>

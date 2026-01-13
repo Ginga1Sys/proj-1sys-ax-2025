@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-label="記事投稿・編集画面イメージ図 SCR-07_Desktop 1440x900">
+  <defs>
+    <style type="text/css"><![CDATA[
+      .bg{fill:#F5F7FA}
+      .primary{fill:#6fb1ff}
+      .surface{fill:#FFFFFF}
+      .text{fill:#111827; font-family: 'Noto Sans JP', Inter, Roboto, sans-serif;}
+      .muted{fill:#6B7280}
+      .h1{font-size:24px; font-weight:700}
+      .h2{font-size:18px; font-weight:600}
+      .body{font-size:14px}
+      .card{fill:#FFFFFF; stroke:#E6E9EE; stroke-width:1}
+      .chip{fill:#F3F6F9; stroke:#E6E9EE}
+      .accent{fill:#2A9DF4}
+      .badge-published{fill:#10B981}
+      .badge-pending{fill:#FF9F1C}
+      .btn{fill:#FFFFFF; stroke:#E6E9EE}
+      .btn-primary{fill:#2A9DF4; color:#fff}
+    ]]></style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" x="0" y="0" width="1440" height="900"/>
+
+  <!-- Topbar -->
+  <rect class="primary" x="0" y="0" width="1440" height="64"/>
+  <g transform="translate(24,12)">
+    <rect x="8" y="8" width="560" height="40" rx="6" fill="#FFFFFF" stroke="#E6E9EE"/>
+    <text x="24" y="36" class="text body muted">検索・フィルタ…</text>
+    <text x="820" y="36" class="text body" fill="#FFFFFF">記事投稿・編集</text>
+    <circle cx="1320" cy="32" r="12" fill="#FFFFFF" opacity="0.9"/>
+    <text x="1390" y="38" class="text" fill="#FFFFFF" font-size="14">U</text>
+  </g>
+
+  <!-- Left Navigation -->
+  <g role="navigation" aria-label="サイドナビ" transform="translate(0,64)">
+    <rect x="0" y="0" width="240" height="836" rx="0" fill="#6fb1ff"/>
+    <g transform="translate(24,24)">
+      <text class="text h2" x="0" y="24" fill="#FFFFFF">Ginga</text>
+      <g fill="#FFFFFF" opacity="0.95" transform="translate(0,44)">
+        <text class="text body" x="0" y="30">ダッシュボード</text>
+        <text class="text body" x="0" y="60">ナレッジ</text>
+        <text class="text body" x="0" y="90">承認</text>
+        <text class="text body" x="0" y="120">投稿一覧</text>
+      </g>
+      <rect x="0" y="210" width="160" height="32" rx="8" fill="#FF6B4A"/>
+      <text x="80" y="234" text-anchor="middle" class="text body" fill="#FFFFFF">＋ 新規投稿</text>
+    </g>
+  </g>
+
+  <!-- Main content -->
+  <g role="main" aria-label="投稿編集" transform="translate(240,64)">
+    <!-- Header / title input -->
+    <g transform="translate(16,16)">
+      <rect x="0" y="0" width="848" height="56" rx="8" class="card"/>
+      <text x="16" y="36" class="text h2">記事タイトルを入力…</text>
+      <text x="720" y="36" class="text body muted" font-size="12">カテゴリ: AI · 下書き</text>
+    </g>
+
+    <!-- Toolbar -->
+    <g transform="translate(16,88)">
+      <rect x="0" y="0" width="848" height="48" rx="8" fill="#FFFFFF" stroke="#E6E9EE"/>
+      <g transform="translate(12,8)">
+        <rect x="0" y="0" width="100" height="32" rx="6" class="btn"/>
+        <text x="50" y="20" text-anchor="middle" class="text body muted">保存（下書き）</text>
+
+        <rect x="116" y="0" width="140" height="32" rx="6" class="btn-primary" fill="#2A9DF4"/>
+        <text x="186" y="20" text-anchor="middle" fill="#fff" class="text body">公開申請（Pending）</text>
+
+        <rect x="268" y="0" width="120" height="32" rx="6" class="btn"/>
+        <text x="328" y="20" text-anchor="middle" class="text body muted">プレビュー切替</text>
+
+        <rect x="400" y="0" width="140" height="32" rx="6" class="btn"/>
+        <text x="470" y="20" text-anchor="middle" class="text body muted">AIタグ提案</text>
+
+        <text x="560" y="20" class="text body muted">文字数: 1,234</text>
+      </g>
+    </g>
+
+    <!-- Editor + Preview columns -->
+    <g transform="translate(16,152)">
+      <!-- Editor card -->
+      <rect class="card" x="0" y="0" width="520" height="440" rx="12"/>
+      <g transform="translate(16,16)">
+        <text class="text h2" x="0" y="18">本文（Markdown）</text>
+        <!-- Simulated editor area -->
+        <rect x="0" y="28" width="488" height="360" rx="8" fill="#FBFDFF" stroke="#E6E9EE"/>
+        <g transform="translate(12,44)">
+          <text class="text body muted" x="0" y="0"># 見出し</text>
+          <text class="text body" x="0" y="22">段落テキスト…</text>
+          <text class="text body" x="0" y="44">- 箇条書き</text>
+          <text class="text body" x="0" y="66">```javascript</text>
+          <text class="text body muted" x="0" y="88">// コードブロック</text>
+        </g>
+      </g>
+
+      <!-- Right: Preview / attachments -->
+      <g transform="translate(552,0)">
+        <rect class="card" x="0" y="0" width="280" height="200" rx="12"/>
+        <text class="text h2" x="16" y="26">プレビュー</text>
+        <g transform="translate(16,40)">
+          <rect x="0" y="0" width="248" height="140" rx="8" fill="#FFF" stroke="#E6E9EE"/>
+          <text class="text body muted" x="8" y="22">レンダリングされたMarkdownのプレビューがここに表示されます。</text>
+        </g>
+
+        <rect class="card" x="0" y="220" width="280" height="108" rx="12"/>
+        <text class="text h2" x="16" y="246">添付ファイル</text>
+        <g transform="translate(16,260)">
+          <rect x="0" y="0" width="120" height="56" rx="8" class="chip"/>
+          <text class="text body muted" x="10" y="36">設計図_v1.pdf</text>
+          <rect x="136" y="0" width="120" height="56" rx="8" class="chip"/>
+          <text class="text body muted" x="146" y="36">図.png</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Tags / visibility row -->
+    <g transform="translate(16,612)">
+      <rect x="0" y="0" width="848" height="72" rx="8" class="card"/>
+      <g transform="translate(12,12)">
+        <text class="text body muted" x="0" y="18">タグ</text>
+        <rect x="44" y="0" width="84" height="28" rx="14" class="chip"/>
+        <text x="86" y="20" class="text body" text-anchor="middle">AI</text>
+        <rect x="140" y="0" width="120" height="28" rx="14" class="chip"/>
+        <text x="200" y="20" class="text body" text-anchor="middle">データ連携</text>
+
+        <text class="text body muted" x="520" y="18">公開範囲</text>
+        <rect x="620" y="0" width="100" height="28" rx="14" fill="#FFFFFF" stroke="#E6E9EE"/>
+        <text x="670" y="20" class="text body" text-anchor="middle">社内のみ</text>
+      </g>
+    </g>
+
+    <!-- Footer / hints -->
+    <text x="16" y="704" class="text body muted">ヒント: Markdown プレビューはリアルタイムで更新されます。AIタグ提案で候補を取得。</text>
+    <text x="16" y="724" class="text body muted">編集履歴 · 下書き自動保存: 30秒毎</text>
+  </g>
+
+  <!-- Right widgets -->
+  <g role="complementary" aria-label="サイドパネル" transform="translate(1120,64)">
+    <rect x="0" y="0" width="320" height="836" rx="0" fill="none"/>
+    <rect x="16" y="16" width="288" height="120" rx="12" class="card"/>
+    <text class="text h2" x="32" y="44">公開設定</text>
+    <text class="text body muted" x="32" y="72">ステータス: 下書き</text>
+    <rect x="176" y="64" width="96" height="28" rx="14" fill="#FF9F1C"/>
+    <text x="224" y="84" font-size="12" fill="#fff" text-anchor="middle">Save</text>
+
+    <rect x="16" y="152" width="288" height="140" rx="12" class="card"/>
+    <text class="text h2" x="32" y="184">公開オプション</text>
+    <text class="text body muted" x="32" y="204">公開日時 / 承認フロー / アクセス権</text>
+
+    <rect x="16" y="312" width="288" height="180" rx="12" class="card"/>
+    <text class="text h2" x="32" y="344">AI提案</text>
+    <text class="text body muted" x="32" y="364">タグ候補 · 要約生成 · タイトル改善</text>
+    <rect x="32" y="392" width="240" height="36" rx="8" fill="#F3F6F9"/>
+    <text x="152" y="418" class="text body muted" text-anchor="middle">AIタグ候補を表示</text>
+  </g>
+
+  <!-- Footer note -->
+  <text x="24" y="886" class="text" font-size="12" fill="#9CA3AF">SCR-07_記事投稿・編集 1440×900 — レイアウト: 左ナビ(240) | メイン(880) | 右(320)</text>
+</svg>
