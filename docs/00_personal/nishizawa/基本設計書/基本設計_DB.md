@@ -109,6 +109,22 @@
 
 インデックス: idx_attachment_knowledge(knowledge_id)
 
+テーブル: refresh_tokens
+| No | カラム名 | 型 | NULL許可 | PK/FK | デフォルト | 説明 |
+|---:|---|---|---:|---|---|---|
+|1| id | UUID | NO | PK | gen_random_uuid() | リフレッシュトークンレコードID |
+|2| user_id | UUID | NO | FK -> users.id | - | 所有者ユーザーID |
+|3| token_hash | VARCHAR(255) | NO | UNI | - | トークンのハッシュ値（平文は保存しない） |
+|4| jti | VARCHAR(255) | YES | - | NULL | JWTの識別子（任意） |
+|5| created_at | TIMESTAMP WITH TIME ZONE | NO | - | now() | 作成日時 |
+|6| expires_at | TIMESTAMP WITH TIME ZONE | NO | - | - | 有効期限 |
+|7| last_used_at | TIMESTAMP WITH TIME ZONE | YES | - | NULL | 最終使用日時（ローテーション検出用） |
+|8| revoked | BOOLEAN | NO | - | false | 取り消しフラグ |
+|9| revoked_at | TIMESTAMP WITH TIME ZONE | YES | - | NULL | 取り消し日時 |
+|10| replaced_by | UUID | YES | FK -> refresh_tokens.id | NULL | ローテーションで置き換えたトークンの参照 |
+
+インデックス: idx_refresh_tokens_user(user_id), idx_refresh_tokens_tokenhash(token_hash)
+
 テーブル: tag
 | No | カラム名 | 型 | NULL許可 | PK/FK | デフォルト | 説明 |
 |---:|---|---|---:|---|---|---|
@@ -258,6 +274,25 @@ CREATE TABLE attachment (
   storage_path TEXT NOT NULL,
   uploaded_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+
+-- リフレッシュトークン保存テーブル: refresh_tokens
+-- 目的: リフレッシュトークンのローテーション・取り消し・有効期限管理を行う
+CREATE TABLE refresh_tokens (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  token_hash VARCHAR(255) NOT NULL UNIQUE,
+  jti VARCHAR(255),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  expires_at TIMESTAMPTZ NOT NULL,
+  last_used_at TIMESTAMPTZ,
+  revoked BOOLEAN NOT NULL DEFAULT false,
+  revoked_at TIMESTAMPTZ,
+  replaced_by UUID REFERENCES refresh_tokens(id)
+);
+
+-- インデックス: 照合効率向上のため user_id と token_hash にインデックスを張る
+CREATE INDEX idx_refresh_tokens_user ON refresh_tokens (user_id);
+CREATE INDEX idx_refresh_tokens_tokenhash ON refresh_tokens (token_hash);
 
 CREATE TABLE tag (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
