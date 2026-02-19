@@ -51,34 +51,61 @@
   - GET /api/v1/auth/confirm?token= — メール確認（アクティベーション）
   - POST /api/v1/auth/login — ログイン (email/password) -> access + refresh
   - POST /api/v1/auth/refresh — トークン更新
+  - POST /api/v1/auth/logout — ログアウト（リフレッシュトークン失効）
+
 - Users
   - GET /api/v1/users/{id} — ユーザー情報取得（自分/管理者）
+  - GET /api/v1/users/me — ログイン中ユーザーのプロファイル取得（クライアント向け）
   - PUT /api/v1/users/{id} — ユーザー更新（権限変更多は管理者のみ）
+
+- Dashboard
+  - GET /api/v1/dashboard — ダッシュボード用の集計・ウィジェットメタデータ（承認待ち件数、ウィジェット構成等）。注: 主要コンテンツ（おすすめ記事・新着記事）は専用エンドポイントを用いる。
+  - GET /api/v1/dashboard/activity — ダッシュボードの集計アクティビティを取得（例: `?range=week`）。
+
 - Knowledge (投稿)
   - POST /api/v1/knowledge — 作成 (draft/pending)
-  - GET /api/v1/knowledge — 検索一覧（query, tags, author, status, pagination）
+  - GET /api/v1/knowledge — 検索一覧（query, tags, author, status, sort, filter）
   - GET /api/v1/knowledge/{id} — 詳細
   - PUT /api/v1/knowledge/{id} — 編集（履歴保存）
   - GET /api/v1/knowledge/{id}/history — 編集履歴一覧取得（過去バージョン参照用）
   - DELETE /api/v1/knowledge/{id} — 論理削除
   - POST /api/v1/knowledge/{id}/submit — 公開申請 (status -> pending)
+
 - Like / Reaction
   - POST /api/v1/knowledge/{id}/like — いいね (1ユーザー1回)
   - DELETE /api/v1/knowledge/{id}/like — いいね解除
+
 - Comment
   - POST /api/v1/knowledge/{id}/comments — コメント作成（parent_comment_id optional）
   - GET /api/v1/knowledge/{id}/comments — コメント一覧（threaded）
   - PUT/DELETE /api/v1/comments/{id} — 編集/削除（権限制御）
+
 - Tags
   - GET /api/v1/tags — タグ一覧取得（タグクラウド・検索フィルタ用）
+
 - Attachment / Media
   - POST /api/v1/attachments — アップロード（multipart/form-data または事前署名）
   - GET /api/v1/attachments/{id} — ダウンロード（署名付きURL 推奨）
+  - POST /api/v1/attachments/presign — 署名付きアップロードURL発行（S3互換ストレージを想定）
+
 - Admin
   - GET /api/v1/admin/knowledge?status=pending — 承認待ち一覧
   - POST /api/v1/admin/knowledge/{id}/approve — 承認
   - POST /api/v1/admin/knowledge/{id}/reject — 却下（理由記録）
   - GET /api/v1/admin/auditlogs — 監査ログ検索
+
+- Ops / Monitoring
+  - GET /health — アプリケーションヘルスチェック
+  - GET /metrics — メトリクス（Prometheus フォーマット等）
+
+  - 認可・権限チェック（ミドルウェア） — 注記
+    - 全APIに共通する横断的実装としてミドルウェアを設置し、以下を担う。
+      - JWT検証（署名・有効期限）、アクセストークン・リフレッシュトークンの扱い整合性
+      - `role`、`permissions`、`scope` によるアクセス制御（例: `ADMIN` が管理APIへアクセス可）
+      - エラー応答: 権限なしは `403 Forbidden`、認証失敗は `401 Unauthorized` を返す
+      - パフォーマンス: 頻繁にチェックされる情報はRedis等で短時間キャッシュ可能
+      - ロギング: 警告レベルの不正アクセス試行は監査ログへ記録
+    - 実装例（Spring Security等）: フィルタで JWT を検証し、`@PreAuthorize` 等でメソッドレベル保護を行う。
 
 ## 9. 主要 API の詳細（サンプル）
 
@@ -114,6 +141,39 @@
   - Auth: optional（公開/非公開ポリシーに準拠）
   - Responses:
     - 200: { "data": [ ... ], "meta": { "page":1, "per_page":20, "total":123 } }
+
+  -- ダッシュボード専用: おすすめ / 新着 API サンプル
+
+  # ダッシュボードの新着表示は汎用 API に集約
+  - ダッシュボード初期スニペット: `GET /api/v1/knowledge?sort=created_at&per_page=3` を推奨（ダッシュボード用の軽量レスポンスは `fields` クエリで制限可能）。
+  - 記事一覧（「新着」クリック）: `GET /api/v1/knowledge?sort=created_at&per_page=10` を使用し、一覧画面でページネーションやフィルタを行う。
+
+    ## UI → API マッピング（ダッシュボードのクイック操作）
+
+    - ダッシュボード初期表示
+      - 表示: ログイン後のダッシュボードではデフォルトで新着記事を3件表示。
+      - API（推奨）: `GET /api/v1/knowledge?sort=created_at&per_page=3`（ダッシュボード初期スニペット用）。
+
+    - クイック操作「新着」クリック
+      - 動作: 記事一覧画面へ遷移し、新着（作成日時降順）で記事を表示。
+      - 画面URL（例）: `/articles?sort=new`
+      - API: `GET /api/v1/knowledge?sort=created_at&per_page=10`（`per_page=10` を指定して10件を取得）。
+
+    - クイック操作「おすすめ」クリック
+      - 動作: 推薦された記事の一覧画面へ遷移し、5件を表示。
+      - 画面URL（例）: `/articles?filter=recommended`
+      - API（推奨: 汎用一覧APIに集約）: `GET /api/v1/knowledge?filter=recommended&per_page=5`
+      - 補足: 推薦ロジックにプロフィールや権限が影響する場合は認証トークンを付与して呼び出す。
+
+-- ダッシュボード: 週次アクティビティ API サンプル
+
+- GET /api/v1/dashboard/activity?range=week
+  - 説明: ダッシュボードの週次アクティビティ概要と日次内訳を返す。ダッシュボードの「週次アクティビティ」クリックで利用。
+  - Auth: Bearer required（表示は権限に依存）
+  - Query params: `range` (optional, default=week)
+  - Responses:
+    - 200: { "data": { "summary": { "new": 12, "comments": 24, "likes": 48 }, "items": [ { "date":"2026-02-07", "new":2, "comments":5, "likes":10 }, ... ] } }
+    - 204: 該当データなし
 
 ## 10. データモデル（概要）
 - User
@@ -193,3 +253,9 @@
 変更履歴:
 - 0.1 初版
 - 0.2 アーキテクチャ追記 — 2026-01-05
+ - 0.3 ダッシュボード仕様改定（新着/おすすめのAPI集約、管理者遷移明確化） — 2026-02-14
+   - `GET /api/v1/dashboard/newest` を廃止し、ダッシュボード新着表示を汎用 `GET /api/v1/knowledge?sort=created_at` に統合
+   - `recommended` フィルタを `GET /api/v1/knowledge?filter=recommended` として追加（ダッシュボードは1件、一覧遷移で5件取得）
+   - ダッシュボードのクイック操作（「新着」「おすすめ」）の UI→API マッピングを追記
+   - 管理者パネルへの遷移を「共通ヘッダーのユーザーメニュー」経由に変更
+   - `最近のアクティビティ` ウィジェットは未実装扱いに修正

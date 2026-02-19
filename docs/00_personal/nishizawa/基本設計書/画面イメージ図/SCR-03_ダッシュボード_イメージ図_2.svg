@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-label="ダッシュボード イメージ図 SCR-03 Desktop 1440x900">
+  <defs>
+    <style type="text/css"><![CDATA[
+      .bg{fill:#F5F7FA}
+      .primary{fill:#6fb1ff}
+      .surface{fill:#FFFFFF}
+      .text{fill:#111827; font-family: 'Noto Sans JP', Inter, Roboto, sans-serif;}
+      .muted{fill:#6B7280}
+      .h1{font-size:22px; font-weight:600}
+      .h2{font-size:18px; font-weight:500}
+      .body{font-size:14px}
+      .card{fill:#FFFFFF; stroke:#E6E9EE; stroke-width:1}
+      .chip{fill:#F3F6F9; stroke:#E6E9EE}
+      .accent{fill:#0B3D91}
+      .cta{fill:#FF6B6B}
+    ]]></style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" x="0" y="0" width="1440" height="900"/>
+
+  <!-- Topbar -->
+  <rect class="primary" x="0" y="0" width="1440" height="64"/>
+  <g transform="translate(24,12)">
+    <rect x="8" y="8" width="760" height="40" rx="6" fill="#FFFFFF" stroke="#E6E9EE"/>
+    <text x="24" y="36" class="text body muted">クイック検索：キーワード、タグ、投稿者…</text>
+    <text x="820" y="36" class="text body" fill="#FFFFFF">ダッシュボード</text>
+    <circle cx="1320" cy="32" r="12" fill="#FFFFFF" opacity="0.9"/>
+    <text x="1390" y="38" class="text" fill="#FFFFFF" font-size="14">U▾</text>
+  </g>
+
+  <!-- Left Navigation -->
+  <g role="navigation" aria-label="サイドナビ" transform="translate(0,64)">
+    <rect x="0" y="0" width="240" height="836" rx="0" fill="#6fb1ff"/>
+    <g transform="translate(24,24)">
+      <text class="text h1" x="0" y="24" fill="#FFFFFF">Ginga</text>
+      <g fill="#FFFFFF" opacity="0.95" transform="translate(0,44)">
+        <text class="text body" x="0" y="30">ダッシュボード</text>
+        <text class="text body" x="0" y="60">ナレッジ</text>
+        <text class="text body" x="0" y="90">承認</text>
+        <text class="text body" x="0" y="120">管理者パネル</text>
+      </g>
+      <rect x="0" y="180" width="192" height="40" rx="8" fill="#FF6B6B"/>
+      <text x="96" y="208" class="text body" fill="#FFFFFF" text-anchor="middle">＋ 新規投稿</text>
+    </g>
+  </g>
+
+  <!-- Main content area -->
+  <g role="main" aria-label="ダッシュボード" transform="translate(240,64)">
+    <!-- Top widgets: New / Recommended / Quick -->
+      <g transform="translate(16,16)">
+      <rect x="0" y="0" width="880" height="120" rx="12" class="surface" stroke="#E6E9EE"/>
+      <text x="24" y="28" class="text h2">クイック操作</text>
+      <g transform="translate(24,40)">
+        <rect class="chip" x="0" y="0" width="160" height="40" rx="8"/>
+        <text x="80" y="26" class="text body" text-anchor="middle">新着（New）</text>
+        <rect class="chip" x="176" y="0" width="200" height="40" rx="8"/>
+        <text x="276" y="26" class="text body" text-anchor="middle">おすすめ</text>
+        <rect x="388" y="0" width="64" height="40" rx="8" fill="#FFFFFF" stroke="#E6E9EE"/>
+        <text x="420" y="26" class="text body muted" text-anchor="middle">フィルタ</text>
+      </g>
+    </g>
+
+    <!-- Main columns: left list + right summary -->
+    <g transform="translate(16,152)">
+      <!-- Left: feed -->
+      <g transform="translate(0,0)">
+        <rect x="0" y="0" width="816" height="540" rx="12" fill="none"/>
+
+        <!-- Featured card -->
+        <g transform="translate(0,0)">
+          <rect class="card" x="0" y="0" width="816" height="120" rx="12"/>
+          <rect x="16" y="16" width="96" height="88" rx="8" fill="#EAF2FF"/>
+          <text x="128" y="44" class="text h2">週刊：AI 活用のベストプラクティス</text>
+          <text x="128" y="72" class="text body muted">要約：ナレッジ共有の運用やガバナンス、具体的事例をまとめています…</text>
+          <text x="128" y="96" class="text body muted">投稿者: 佐藤 花子 • 2025/01/12</text>
+          <rect x="720" y="44" width="92" height="28" rx="14" fill="#10B981"/>
+          <text x="766" y="63" font-size="12" fill="#fff" text-anchor="middle">Published</text>
+        </g>
+
+        <!-- Second row: new article snippets -->
+        <g transform="translate(0,140)">
+          <!-- New item 1 -->
+          <g transform="translate(0,0)">
+            <rect class="card" x="0" y="0" width="816" height="72" rx="8"/>
+            <text x="16" y="26" class="text h2" font-size="16">新着: AIによる要約の作成手順</text>
+            <text x="16" y="48" class="text body muted">投稿者: 佐藤 花子 • 2026/01/10</text>
+          </g>
+          <!-- New item 2 -->
+          <g transform="translate(0,88)">
+            <rect class="card" x="0" y="0" width="816" height="72" rx="8"/>
+            <text x="16" y="26" class="text h2" font-size="16">新着: プロンプト設計のベストプラクティス</text>
+            <text x="16" y="48" class="text body muted">投稿者: 山田 太郎 • 2026/01/08</text>
+          </g>
+          <!-- New item 3 -->
+          <g transform="translate(0,176)">
+            <rect class="card" x="0" y="0" width="816" height="72" rx="8"/>
+            <text x="16" y="26" class="text h2" font-size="16">新着: モデル評価のチェックリスト</text>
+            <text x="16" y="48" class="text body muted">投稿者: 中村 一郎 • 2026/01/05</text>
+          </g>
+        </g>
+      </g>
+
+      <!-- Right: summary widgets -->
+      <g transform="translate(840,16)">
+        <rect x="0" y="0" width="320" height="120" rx="12" class="card"/>
+        <text x="24" y="36" class="text h2">承認待ち</text>
+        <text x="24" y="72" class="text h1" fill="#0B3D91">2 件</text>
+
+        <rect x="0" y="144" width="320" height="160" rx="12" class="card"/>
+        <text x="24" y="176" class="text body">週次アクティビティ</text>
+        <text x="24" y="212" class="text body muted">新着: 12 • コメント: 24 • いいね: 48</text>
+      </g>
+    </g>
+
+    <!-- Footer note -->
+    <text x="24" y="716" class="text" font-size="12" fill="#9CA3AF">SCR-03_ダッシュボード 1440×900 — レイアウト: 左ナビ(240) | メイン(880) | 右(320)</text>
+  </g>
+</svg>
