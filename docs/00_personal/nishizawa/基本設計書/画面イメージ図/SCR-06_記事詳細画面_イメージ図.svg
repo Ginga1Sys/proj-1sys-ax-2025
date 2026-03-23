@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-label="記事詳細画面イメージ図 SCR-06_Desktop 1440x900">
+  <defs>
+    <style type="text/css"><![CDATA[
+      .bg{fill:#F5F7FA}
+      .primary{fill:#6fb1ff}
+      .surface{fill:#FFFFFF}
+      .text{fill:#111827; font-family: 'Noto Sans JP', Inter, Roboto, sans-serif;}
+      .muted{fill:#6B7280}
+      .h1{font-size:24px; font-weight:700}
+      .h2{font-size:18px; font-weight:600}
+      .body{font-size:14px}
+      .card{fill:#FFFFFF; stroke:#E6E9EE; stroke-width:1}
+      .chip{fill:#F3F6F9; stroke:#E6E9EE}
+      .accent{fill:#2A9DF4}
+      .badge-published{fill:#10B981}
+      .badge-pending{fill:#FF9F1C}
+    ]]></style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" x="0" y="0" width="1440" height="900"/>
+
+  <!-- Topbar -->
+  <rect class="primary" x="0" y="0" width="1440" height="64"/>
+  <g transform="translate(24,12)">
+    <rect x="8" y="8" width="560" height="40" rx="6" fill="#FFFFFF" stroke="#E6E9EE"/>
+    <text x="24" y="36" class="text body muted">検索・フィルタ…</text>
+    <text x="820" y="36" class="text body" fill="#FFFFFF">記事詳細</text>
+    <circle cx="1320" cy="32" r="12" fill="#FFFFFF" opacity="0.9"/>
+    <text x="1390" y="38" class="text" fill="#FFFFFF" font-size="14">U</text>
+  </g>
+
+  <!-- Left Navigation -->
+  <g role="navigation" aria-label="サイドナビ" transform="translate(0,64)">
+    <rect x="0" y="0" width="240" height="836" rx="0" fill="#6fb1ff"/>
+    <g transform="translate(24,24)">
+      <text class="text h2" x="0" y="24" fill="#FFFFFF">Ginga</text>
+      <g fill="#FFFFFF" opacity="0.95" transform="translate(0,44)">
+        <text class="text body" x="0" y="30">ダッシュボード</text>
+        <text class="text body" x="0" y="60">ナレッジ</text>
+        <text class="text body" x="0" y="90">承認</text>
+        <text class="text body" x="0" y="120">投稿一覧</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Main content -->
+  <g role="main" aria-label="記事詳細" transform="translate(240,64)">
+    <!-- Breadcrumb / actions -->
+    <g transform="translate(16,16)">
+      <text class="text body muted" x="0" y="18">ナレッジ / AI / 社内データ連携</text>
+      <g transform="translate(0,24)">
+        <text class="text h1" x="0" y="36">社内データ連携メモ</text>
+        <g transform="translate(0,52)">
+          <text class="text body muted" x="0" y="18">著者: 西沢 太郎 · 公開: 2024/11/02</text>
+          <rect x="420" y="0" width="84" height="28" rx="14" class="badge-published"/>
+          <text x="462" y="20" font-size="12" fill="#fff" text-anchor="middle">Published</text>
+          <rect x="520" y="-4" width="72" height="32" rx="8" fill="#FFFFFF" stroke="#E6E9EE"/>
+          <text x="556" y="18" class="text body" text-anchor="middle">編集</text>
+          <rect x="600" y="-4" width="72" height="32" rx="8" fill="#FFFFFF" stroke="#E6E9EE"/>
+          <text x="636" y="18" class="text body" text-anchor="middle">いいね ❤️</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Article area -->
+    <g transform="translate(16,140)">
+      <rect class="card" x="0" y="0" width="816" height="320" rx="12"/>
+      <!-- Simulated rendered markdown -->
+      <g transform="translate(24,24)">
+        <text class="text h2" x="0" y="22">概要</text>
+        <text class="text body muted" x="0" y="46">社内システム間でデータを安全に連携するための手順と注意点をまとめます。</text>
+
+        <text class="text h2" x="0" y="86">手順</text>
+        <text class="text body" x="0" y="108">1. データ定義の確認</text>
+        <text class="text body" x="0" y="126">2. 転送方法（API / SFTP）選定</text>
+        <text class="text body" x="0" y="144">3. ロギングと監査の実装</text>
+
+        <!-- attachments -->
+        <g transform="translate(0,170)">
+          <text class="text body" x="0" y="18">添付ファイル</text>
+          <rect x="0" y="26" width="140" height="64" rx="8" class="chip"/>
+          <text x="70" y="66" class="text body muted" text-anchor="middle">連携設計_v1.pdf</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- AI summary panel -->
+    <g transform="translate(16,480)">
+      <rect class="card" x="0" y="0" width="400" height="120" rx="12"/>
+      <text class="text h2" x="16" y="28">AI要約</text>
+      <text class="text body muted" x="16" y="52">この記事の要点をAIが自動生成します。</text>
+      <text class="text body" x="16" y="76">• データ定義確認の重要性</text>
+      <text class="text body" x="16" y="96">• API認証と監査ログの実装を推奨</text>
+    </g>
+
+    <!-- コメントスレッド -->
+    <g transform="translate(432,480)">
+      <rect class="card" x="0" y="0" width="384" height="320" rx="12"/>
+      <text class="text h2" x="16" y="28">コメント</text>
+
+      <!-- Comment 1 -->
+      <g transform="translate(16,44)">
+        <rect x="0" y="0" width="352" height="64" rx="8" fill="#FBFDFF" stroke="#E6E9EE"/>
+        <text class="text body" x="12" y="22">佐藤 花子: とても参考になりました。API認証はOAuth2で良いでしょうか？</text>
+        <text class="text muted" x="12" y="44" font-size="12">いいね 3 · 返信</text>
+      </g>
+
+      <!-- Comment 2 -->
+      <g transform="translate(16,120)">
+        <rect x="0" y="0" width="352" height="64" rx="8" fill="#FFF7EA" stroke="#E6E9EE"/>
+        <text class="text body" x="12" y="22">管理者: 下書きのログ取得要件を追加してください。</text>
+        <text class="text muted" x="12" y="44" font-size="12">いいね 1 · 返信</text>
+      </g>
+
+      <!-- New comment input placeholder -->
+      <g transform="translate(16,196)" opacity="0.6">
+        <rect x="0" y="0" width="352" height="56" rx="8" fill="#F3F6F9"/>
+        <text class="text body muted" x="12" y="34">コメントを追加…</text>
+      </g>
+    </g>
+
+    <!-- Footer / navigation hint -->
+    <text x="16" y="820" class="text body muted">編集履歴 · 関連リンク</text>
+  </g>
+
+  <!-- Right widgets -->
+  <g role="complementary" aria-label="ウィジェット" transform="translate(1120,64)">
+    <rect x="0" y="0" width="320" height="836" rx="0" fill="none"/>
+    <rect x="16" y="16" width="288" height="120" rx="12" class="card"/>
+    <text class="text h2" x="32" y="44">著者</text>
+    <text class="text body" x="32" y="72">西沢 太郎</text>
+    <text class="text body muted" x="32" y="92">部署: 開発部 · 投稿: 24</text>
+
+    <rect x="16" y="152" width="288" height="160" rx="12" class="card"/>
+    <text class="text h2" x="32" y="184">関連記事</text>
+    <g transform="translate(32,200)">
+      <text class="text body" x="0" y="18">• 機械学習基礎まとめ</text>
+      <text class="text body" x="0" y="36">• データ共有ポリシー</text>
+      <text class="text body" x="0" y="54">• API設計ガイド</text>
+    </g>
+
+    <rect x="16" y="332" width="288" height="220" rx="12" class="card"/>
+    <text class="text h2" x="32" y="360">管理操作</text>
+    <text class="text body muted" x="32" y="386">承認 / 差し戻し / 監査ログ</text>
+  </g>
+
+  <!-- Footer note -->
+  <text x="24" y="886" class="text" font-size="12" fill="#9CA3AF">SCR-06_記事詳細 1440×900 — レイアウト: 左ナビ(240) | メイン(880) | 右(320)</text>
+</svg>
