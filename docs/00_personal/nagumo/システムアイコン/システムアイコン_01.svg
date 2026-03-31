@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="NaviAI system icon">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00C9FF"/>
+      <stop offset="100%" stop-color="#2266FF"/>
+    </linearGradient>
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- 背景円 -->
+  <circle cx="256" cy="256" r="240" fill="url(#bgGrad)"/>
+
+  <!-- 外枠リング -->
+  <circle cx="256" cy="256" r="200" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="6"/>
+
+  <!-- コンパスベース（薄い白線） -->
+  <g transform="translate(0,0)" opacity="0.95">
+    <circle cx="256" cy="256" r="120" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+
+    <!-- 針（赤） -->
+    <g filter="url(#softShadow)" transform="translate(0,0)">
+      <polygon points="256,130 272,256 256,246 240,256" fill="#FF6B6B" />
+      <!-- 反対側の針（青） -->
+      <polygon points="256,382 240,256 256,266 272,256" fill="#ffffff" opacity="0.92" />
+    </g>
+
+    <!-- 方向記号（Nの簡易化） -->
+    <path d="M244 200 L244 312 L268 256 Z" fill="#ffffff" opacity="0.92" transform="translate(0,0)"/>
+  </g>
+
+  <!-- ニューラルノード風アクセント（検索／AIを示唆） -->
+  <g stroke="#FFFFFF" stroke-opacity="0.9" stroke-width="4" fill="#FFFFFF" fill-opacity="0.95">
+    <!-- 線 -->
+    <path d="M340 180 C300 200, 300 300, 220 320" stroke-width="3" stroke-opacity="0.9" fill="none"/>
+    <path d="M300 220 C330 250, 300 300, 260 300" stroke-width="3" stroke-opacity="0.65" fill="none"/>
+    <!-- ノード -->
+    <circle cx="340" cy="180" r="10" fill="#fff"/>
+    <circle cx="260" cy="300" r="12" fill="#fff"/>
+    <circle cx="220" cy="320" r="8" fill="#fff"/>
+  </g>
+
+  <!-- 中央の小さなリング（焦点） -->
+  <circle cx="256" cy="256" r="34" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+  <circle cx="256" cy="256" r="6" fill="#fff"/>
+
+</svg>
